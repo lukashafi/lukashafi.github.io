@@ -1,24 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .icon img {
-            width: 24px; /* Adjust as necessary */
-            height: auto;
-            filter: brightness(0) invert(1); /* Makes SVG white */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tako's Wardrobe | ლინკები</title>
+
+  <style>
+    :root{
+      --text: rgba(255,255,255,0.96);
+      --muted: rgba(255,255,255,0.78);
+      --card: rgba(255,255,255,0.14);
+      --stroke: rgba(255,255,255,0.26);
+      --shadow: 0 18px 70px rgba(0,0,0,0.38);
+      --radius: 22px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      min-height:100svh;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      color:var(--text);
+      display:grid;
+      place-items:center;
+      padding:24px;
+      background:#0f1020;
+      overflow-x:hidden;
+    }
+
+    /* background.png blur */
+    .bg{
+      position:fixed;
+      inset:-40px;
+      background:
+        linear-gradient(135deg, rgba(255, 183, 213, 0.18), rgba(180, 160, 255, 0.14)),
+        url("background.png");
+      background-size:cover;
+      background-position:center;
+      filter: blur(16px) saturate(1.12);
+      transform: scale(1.08);
+      z-index:-2;
+    }
+
+    .bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(1200px 800px at 50% 15%, rgba(0,0,0,0.10), rgba(0,0,0,0.55));
+    }
+
+    .wrap{
+      width:100%;
+      max-width:420px;
+      display:grid;
+      gap:14px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      overflow:hidden;
+    }
+
+    header.card{
+      padding:18px 18px 14px;
+      text-align:center;
+    }
+
+    .avatar{
+      width:112px;
+      height:112px;
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.92);
+      object-fit:cover;
+      display:block;
+      margin:2px auto 12px;
+    }
+
+    h1{
+      margin:0;
+      font-size:22px;
+      letter-spacing:0.2px;
+    }
+
+    .subtitle{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.4;
+    }
+
+    .links.card{
+      padding:14px;
+      display:grid;
+      gap:12px;
+    }
+
+    .link{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      width:100%;
+      padding:14px 14px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+      color:var(--text);
+      text-decoration:none;
+      transition: transform .15s ease, background-color .15s ease, border-color .15s ease;
+    }
+
+    .link:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.16);
+      border-color: rgba(255,255,255,0.34);
+    }
+
+    .left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brand-icon{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background: rgba(255,255,255,0.16);
+      border:1px solid rgba(255,255,255,0.22);
+      flex:0 0 auto;
+    }
+
+    .brand-icon img{
+      width:22px;
+      height:22px;
+      display:block;
+      /* თეთრი აიქონები (თუ ფერადები გინდა, ეს ხაზი წაშალე) */
+      filter: brightness(0) invert(1);
+      opacity:0.95;
+    }
+
+    .label{
+      font-weight:800;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .chev{ opacity:0.78; font-size:18px; }
+
+    @media (prefers-reduced-motion: reduce){
+      .link{ transition:none; }
+      .link:hover{ transform:none; }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="social-icons">
-        <a href="https://facebook.com" class="icon"><img src="facebook.svg" alt="Facebook"></a>
-        <a href="#" class="icon"><img src="instagram.svg" alt="Instagram"></a>
-        <a href="https://tiktok.com" class="icon"><img src="tiktok.svg" alt="TikTok"></a>
-    </div>
-    <img src="background.png" class="background" style="filter: blur(5px);">  
+  <div class="bg" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="card">
+      <img src="logo.png" alt="Tako's Wardrobe" class="avatar" />
+      <h1>Tako's Wardrobe</h1>
+      <p class="subtitle">მოგესალმებით — აი ��ემი სოციალური ლინკები</p>
+    </header>
+
+    <section class="links card" aria-label="Social links">
+      <a class="link" href="https://www.facebook.com/profile.php?id=61579124152946" target="_blank" rel="noopener noreferrer">
+        <span class="left">
+          <span class="brand-icon" aria-hidden="true"><img src="facebook.svg" alt=""></span>
+          <span class="label">Facebook</span>
+        </span>
+        <span class="chev" aria-hidden="true">›</span>
+      </a>
+
+      <!-- ჩაანაცვლე შენი Instagram ლინკით -->
+      <a class="link" href="#" target="_blank" rel="noopener noreferrer">
+        <span class="left">
+          <span class="brand-icon" aria-hidden="true"><img src="instagram.svg" alt=""></span>
+          <span class="label">Instagram</span>
+        </span>
+        <span class="chev" aria-hidden="true">›</span>
+      </a>
+
+      <a class="link" href="https://www.tiktok.com/@takos.wardrobe?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer">
+        <span class="left">
+          <span class="brand-icon" aria-hidden="true"><img src="tiktok.svg" alt=""></span>
+          <span class="label">TikTok</span>
+        </span>
+        <span class="chev" aria-hidden="true">›</span>
+      </a>
+    </section>
+  </main>
 </body>
 </html>
